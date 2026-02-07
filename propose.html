@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Rose Day 💖</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#ff416c,#ff4b2b);
+    color:white;
+}
+
+/* pages */
+.page{
+    display:none;
+    height:100vh;
+    width:100%;
+    text-align:center;
+    padding-top:60px;
+}
+.page.active{ display:block; }
+
+h1{
+    font-size:3em;
+    animation:glow 2s infinite alternate;
+}
+@keyframes glow{
+    from{ text-shadow:0 0 10px pink; }
+    to{ text-shadow:0 0 30px white; }
+}
+
+p{
+    font-size:1.4em;
+    width:80%;
+    margin:auto;
+}
+
+/* navigation buttons */
+.controls{
+    position:absolute;
+    bottom:40px;
+    width:100%;
+    text-align:center;
+}
+.controls button{
+    padding:12px 28px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    background:rgba(255,255,255,0.9);
+    color:#ff2e63;
+    font-weight:bold;
+    box-shadow:0 0 15px pink;
+}
+.controls button:disabled{
+    opacity:0.4;
+}
+
+/* dots */
+.dots{
+    position:absolute;
+    bottom:15px;
+    width:100%;
+    text-align:center;
+    font-size:22px;
+}
+.dot{ opacity:0.4; }
+.dot.active{ opacity:1; }
+
+/* rain */
+.rain{
+    position:absolute;
+    font-size:24px;
+    animation:fall linear infinite;
+}
+@keyframes fall{
+    from{ top:-40px; }
+    to{ top:100vh; }
+}
+
+/* proposal */
+/* proposal buttons container */
+.proposal-buttons{
+    margin-top:30px;
+}
+
+/* YES button */
+#yes{
+    background:linear-gradient(45deg,#ffeb3b,#ff69b4);
+    color:#b0004d;
+    font-size:22px;
+    padding:16px 40px;
+    border-radius:50px;
+    font-weight:bold;
+    box-shadow:0 0 25px #ffeb3b;
+    animation:heartbeat 1.2s infinite;
+}
+
+/* heartbeat animation */
+@keyframes heartbeat{
+    0%{ transform:scale(1); }
+    50%{ transform:scale(1.1); }
+    100%{ transform:scale(1); }
+}
+
+/* NO button */
+#no{
+    background:white;
+    color:#ff2e63;
+    font-size:16px;
+    padding:10px 22px;
+    border-radius:30px;
+    position:absolute;
+    box-shadow:0 0 10px pink;
+}
+
+
+/* ===== PHOTO FRAMES ===== */
+.photos{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    margin-top:40px;
+}
+
+/* Frame 3 – glowing circle */
+.frame3{
+    width:190px;
+    height:190px;
+    border-radius:50%;
+    border:6px solid white;
+    box-shadow:0 0 25px pink;
+    object-fit:cover;
+}
+
+/* Frame 4 – heart frame */
+.frame4{
+    width:200px;
+    height:200px;
+    clip-path: polygon(
+        50% 15%, 61% 6%, 75% 6%, 88% 18%, 
+        88% 35%, 50% 75%, 12% 35%, 12% 18%, 
+        25% 6%, 39% 6%
+    );
+    border:6px solid white;
+    box-shadow:0 0 30px red;
+    object-fit:cover;
+}
+
+/* ⭐ NEW Frame 5 – square glass frame */
+.frame5{
+    width:200px;
+    height:200px;
+    border-radius:20px;
+    border:4px solid rgba(255,255,255,0.6);
+    backdrop-filter:blur(6px);
+    box-shadow:0 0 30px rgba(255,255,255,0.7);
+    object-fit:cover;
+}
+
+/* ⭐ NEW Frame 6 – rotating neon frame */
+.frame6{
+    width:280px;          /* 🔼 increased size */
+    height:280px;         /* 🔼 increased size */
+    border-radius:50%;
+    border:8px dashed #fff;  /* thicker border */
+    animation:spin 8s linear infinite;
+    box-shadow:
+        0 0 20px #ffeb3b,
+        0 0 40px #ff69b4,
+        0 0 60px rgba(255,255,255,0.8); /* extra glow ✨ */
+    object-fit:cover;
+}
+
+@keyframes spin{
+    from{ transform:rotate(0deg); }
+    to{ transform:rotate(360deg); }
+}
+
+/* fireworks */
+.firework{
+    position:absolute;
+    font-size:30px;
+    animation:boom 1.2s ease-out forwards;
+}
+@keyframes boom{
+    from{ transform:scale(0); opacity:1; }
+    to{ transform:scale(3); opacity:0; }
+}
+#musicBtn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    padding:12px 22px;
+    font-size:16px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    background:white;
+    color:#ff2e63;
+    font-weight:bold;
+    box-shadow:0 0 15px pink;
+    z-index:9999;
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- PAGE 1 -->
+<div class="page active">
+    <h1>🌹Happy Rose Day, BUGGU 🌹</h1>
+    <p>Having you as my girlfriendis my favorite blessing 💖I choose YOU, every single day ✨ 💖</p>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+    <h1>💑Two hearts, one beautiful story💑</h1>
+    <div class="photos">
+        <img src="kajal5.jpg.jpeg" class="frame3">
+        <img src="mypic.jpeg" class="frame3">
+    </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+    <h1>❤️ Heart Frame ❤️</h1>
+    <div class="photos">
+        <img src="photo7.jpeg" class="frame4">
+        <img src="photo2.jpeg" class="frame4">
+    </div>
+</div>
+
+<!-- ⭐ PAGE 4 – FRAME 5 -->
+<div class="page">
+    <h1>✨ Glass Love ✨</h1>
+    <div class="photos">
+        <img src="photo4.jpeg" class="frame5">
+        <img src="photo8.jpeg" class="frame5">
+    </div>
+</div>
+
+<!-- ⭐ PAGE 5 – FRAME 6 -->
+<div class="page">
+    <h1>🌟 Forever Shine 🌟</h1>
+    <div class="photos">
+        <img src="kajal.jpg copy.jpeg" class="frame6">
+        <img src="buggu.jpeg" class="frame6">
+    </div>
+</div>
+
+<!-- PAGE 6 – PROPOSAL -->
+<div class="page">
+    <h1>💍Will You Be Mine? 💍</h1>
+    <p>Because my heart sees forever in YOU 💕Not just now… but always 🌸 🌹 💖</p>
+<div class="proposal-buttons">
+    <button id="yes" onclick="yesClick()">💍 YES, I WILL 💖</button>
+    <button id="no" onmouseover="moveNo()">🙈 Not Now</button>
+</div>
+
+</div>
+
+<!-- PAGE 7 – MESSAGE -->
+<div class="page">
+    <h1>💖 My Promise 💖</h1>
+    <p id="typing"></p>
+</div>
+
+<!-- controls -->
+<div class="controls">
+    <button id="prevBtn" onclick="prevPage()">⬅ Back</button>
+    <button id="nextBtn" onclick="nextPage()">Continue ➡</button>
+</div>
+
+<!-- dots -->
+<div class="dots">
+    <span class="dot active">●</span>
+    <span class="dot">●</span>
+    <span class="dot">●</span>
+    <span class="dot">●</span>
+    <span class="dot">●</span>
+    <span class="dot">●</span>
+    <span class="dot">●</span>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let pages=document.querySelectorAll(".page");
+let dots=document.querySelectorAll(".dot");
+let index=0;
+
+function showPage(){
+    pages.forEach(p=>p.classList.remove("active"));
+    dots.forEach(d=>d.classList.remove("active"));
+    pages[index].classList.add("active");
+    dots[index].classList.add("active");
+    prevBtn.disabled = index===0;
+    nextBtn.disabled = index===pages.length-1;
+    if(index===6) startTyping();
+}
+function nextPage(){ if(index<pages.length-1){ index++; showPage(); } }
+function prevPage(){ if(index>0){ index--; showPage(); } }
+
+/* NO button */
+function moveNo(){
+    no.style.left=Math.random()*80+"%";
+    no.style.top=Math.random()*80+"%";
+}
+
+/* typing */
+let msg="I promise you this 🌹My heart will always find its way back to YOU 💞Happy Rose Day Buggu❤️   With every breath,with every heartbeat —I love YOU 💞 ";
+let i=0;
+function startTyping(){
+    let el=document.getElementById("typing");
+    if(el.innerHTML) return;
+    function t(){
+        if(i<msg.length){
+            el.innerHTML+=msg.charAt(i);
+            i++;
+            setTimeout(t,60);
+        }
+    } t();
+}
+
+/* fireworks */
+function yesClick(){
+    for(let i=0;i<25;i++){
+        let f=document.createElement("div");
+        f.className="firework";
+        f.innerHTML="🎆";
+        f.style.left=Math.random()*100+"%";
+        f.style.top=Math.random()*100+"%";
+        document.body.appendChild(f);
+        setTimeout(()=>f.remove(),1200);
+    }
+    setTimeout(nextPage,800);
+}
+
+/* rain */
+setInterval(()=>{
+    let r=document.createElement("div");
+    r.className="rain";
+    r.innerHTML=Math.random()>0.5?"🌹":"❤️";
+    r.style.left=Math.random()*100+"%";
+    r.style.animationDuration=(Math.random()*3+2)+"s";
+    document.body.appendChild(r);
+    setTimeout(()=>r.remove(),5000);
+},300);
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+let playing = false;
+
+function toggleMusic(){
+    if(!playing){
+        music.play();
+        musicBtn.innerHTML = "⏸ Pause Song";
+    }else{
+        music.pause();
+        musicBtn.innerHTML = "🎶 Play Song";
+    }
+    playing = !playing;
+}
+
+/* AUTO-START after first click anywhere */
+document.body.addEventListener("click", ()=>{
+    if(!playing){
+        music.play();
+        musicBtn.innerHTML="⏸ Pause Song";
+        playing = true;
+    }
+},{ once:true });
+
+</script>
+
+</body>
+</html>
